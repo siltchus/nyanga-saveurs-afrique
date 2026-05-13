@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="NYANGA Saveurs d'Afrique – Épices africaines authentiques livrées à Ottawa et partout au Canada. Découvrez nos arômes, assaisonnements et cubes d'exception.">
+<meta name="keywords" content="épices africaines, Ottawa, Canada, assaisonnement, Maggi, cubes crevettes, bouga, livraison Ottawa">
+<meta property="og:title" content="NYANGA – Saveurs d'Afrique à Ottawa 🌶️">
+<meta property="og:description" content="Épices 100% authentiques livrées à Ottawa & partout au Canada">
+<title>NYANGA – Saveurs d'Afrique 🌶️ | Ottawa, Canada</title>
+
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --fire: #E8430A;
+    --gold: #F4A200;
+    --earth: #8B3A0F;
+    --dark: #1A0A00;
+    --cream: #FFF8F0;
+    --green: #2D6A1F;
+    --canada: #D52B1E;
+    --text: #2C1A00;
+    --white: #FFFFFF;
+    --shadow: 0 8px 32px rgba(232,67,10,0.18);
+    --radius: 18px;
+    --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--fire); border-radius: 10px; }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(40px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity:0; } to { opacity:1; }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(-14px) rotate(3deg); }
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232,67,10,0.4); }
+    50%      { transform: scale(1.04); box-shadow: 0 0 0 16px rgba(232,67,10,0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    40%     { transform: translateY(-10px); }
+    60%     { transform: translateY(-5px); }
+  }
+  @keyframes slideRight {
+    from { transform: translateX(-60px); opacity:0; }
+    to   { transform: translateX(0); opacity:1; }
+  }
+  @keyframes slideLeft {
+    from { transform: translateX(60px); opacity:0; }
+    to   { transform: translateX(0); opacity:1; }
+  }
+  @keyframes zoomIn {
+    from { transform: scale(0.7); opacity:0; }
+    to   { transform: scale(1); opacity:1; }
+  }
+  @keyframes fireSpark {
+    0%   { transform: translateY(0) scale(1); opacity:1; }
+    100% { transform: translateY(-60px) scale(0); opacity:0; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+  }
+  @keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes ripple {
+    to { transform: scale(4); opacity:0; }
+  }
+  @keyframes textGlow {
+    0%,100% { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold); }
+    50%      { text-shadow: 0 0 20px var(--fire), 0 0 40px var(--fire), 0 0 60px var(--gold); }
+  }
+  @keyframes particleFloat {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity:1; }
+    100% { transform: translateY(-10vh) rotate(720deg); opacity:0; }
+  }
+  @keyframes waving {
+    0%,100% { transform: rotate(0deg); }
+    25%     { transform: rotate(-15deg); }
+    75%     { transform: rotate(15deg); }
+  }
+
+  /* ===== UTILITY ===== */
+  .hidden { opacity:0; transform:translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .visible { opacity:1 !important; transform:translateY(0) !important; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 50px; font-weight: 700;
+    font-size: 1rem; border: none; cursor: pointer;
+    text-decoration: none; transition: var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .btn::after {
+    content:''; position:absolute; inset:0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-100%); transition: transform 0.3s ease;
+  }
+  .btn:hover::after { transform: translateX(0); }
+  .btn-fire { background: linear-gradient(135deg, var(--fire), var(--gold)); color: #fff; }
+  .btn-fire:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(232,67,10,0.45); }
+  .btn-wa { background: #25D366; color: #fff; }
+  .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(37,211,102,0.4); }
+  .btn-outline { border: 2px solid var(--gold); color: var(--gold); background: transparent; }
+  .btn-outline:hover { background: var(--gold); color: var(--dark); }
+  .section-title {
+    text-align: center; margin-bottom: 48px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--fire));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+  .badge {
+    display: inline-block; padding: 4px 12px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .badge-hot { background: linear-gradient(135deg, var(--fire), #FF6B35); color:#fff; }
+  .badge-new { background: linear-gradient(135deg, var(--green), #4CAF50); color:#fff; }
+  .badge-promo { background: linear-gradient(135deg, var(--canada), #FF4444); color:#fff; }
+
+  /* ===== PARTICLES ===== */
+  #particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .particle {
+    position:absolute; border-radius:50%;
+    animation: particleFloat linear infinite;
+    opacity: 0.15;
+  }
+
+  /* ===== TICKER ===== */
+  .ticker {
+    background: linear-gradient(135deg, var(--fire), var(--earth));
+    color: #fff; padding: 10px 0; overflow:hidden;
+    font-weight: 700; font-size: 0.9rem; position:relative; z-index: 200;
+  }
+  .ticker-inner { display: flex; align-items:center; white-space:nowrap; }
+  .ticker-text { animation: marquee 20s linear infinite; padding-right: 60px; }
+  .ticker-text span { margin: 0 20px; }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: sticky; top:0; z-index: 1000;
+    background: rgba(26,10,0,0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(244,162,0,0.15);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled { box-shadow: 0 4px 30px rgba(232,67,10,0.3); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; max-width: 1200px; margin: 0 auto;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px; text-decoration:none;
+  }
+  .nav-logo-icon {
+    width: 44px; height: 44px; background: linear-gradient(135deg, var(--fire), var(--gold));
+    border-radius: 12px; display:flex; align-items:center; justify-content:center;
+    font-size: 1.3rem; animation: float 4s ease-in-out infinite;
+  }
+  .nav-logo-text { color: #fff; }
+  .nav-logo-text strong { display:block; font-size: 1.1rem; font-weight:900; color: var(--gold); }
+  .nav-logo-text span { display:block; font-size: 0.7rem; color: rgba(255,255,255,0.7); }
+  .nav-menu {
+    display: flex; align-items:center; gap: 6px;
+    list-style:none;
+  }
+  .nav-menu a {
+    color: rgba(255,255,255,0.85); text-decoration:none;
+    padding: 8px 14px; border-radius: 8px;
+    font-size: 0.88rem; font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-menu a::after {
+    content:''; position:absolute; bottom:4px; left:50%; right:50%;
+    height:2px; background: var(--gold); border-radius:2px;
+    transition: var(--transition);
+  }
+  .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a:hover::after { left:14px; right:14px; }
+  .nav-cta { display:flex; gap:10px; align-items:center; }
+  .hamburger {
+    display:none; flex-direction:column; gap:5px;
+    cursor:pointer; padding:8px; border-radius:8px;
+    background: rgba(244,162,0,0.1); border:none;
+    transition: var(--transition);
+  }
+  .hamburger span {
+    display:block; width:22px; height:2px;
+    background: var(--gold); border-radius:2px;
+    transition: var(--transition);
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .hamburger.open span:nth-child(2) { opacity:0; transform: translateX(-10px); }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+  /* ===== MOBILE DRAWER ===== */
+  .mobile-drawer {
+    display:none; position:fixed; top:0; right:-100%; width:85%; max-width:340px;
+    height:100vh; background: var(--dark);
+    border-left: 1px solid rgba(244,162,0,0.2);
+    z-index: 2000; flex-direction:column;
+    transition: right 0.4s cubic-bezier(0.23,1,0.32,1);
+    overflow-y: auto;
+    padding-bottom: 30px;
+  }
+  .mobile-drawer.open { right:0; }
+  .drawer-overlay {
+    display:none; position:fixed; inset:0;
+    background: rgba(0,0,0,0.7); z-index:1999;
+    backdrop-filter: blur(4px);
+  }
+  .drawer-overlay.open { display:block; }
+  .drawer-header {
+    padding: 20px; display:flex; align-items:center; justify-content:space-between;
+    border-bottom: 1px solid rgba(244,162,0,0.15);
+    background: linear-gradient(135deg, rgba(232,67,10,0.15), rgba(244,162,0,0.1));
+  }
+  .drawer-close {
+    background:none; border:none; color: var(--gold); font-size:1.6rem;
+    cursor:pointer; padding:4px;
+  }
+  .drawer-nav { padding: 20px; display:flex; flex-direction:column; gap:6px; }
+  .drawer-nav a {
+    color: rgba(255,255,255,0.85); text-decoration:none;
+    padding: 13px 16px; border-radius: 12px;
+    font-size: 0.95rem; font-weight: 600;
+    display:flex; align-items:center; gap: 12px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+  }
+  .drawer-nav a:hover, .drawer-nav a.active {
+    background: rgba(244,162,0,0.1); color: var(--gold);
+    border-color: rgba(244,162,0,0.2);
+  }
+  .drawer-nav .icon { font-size:1.2rem; width:28px; text-align:center; }
+  .drawer-cta { padding: 20px; display:flex; flex-direction:column; gap:12px; }
+
+  /* ===== HERO ===== */
+  #hero {
+    min-height: 100vh; position:relative; display:flex; align-items:center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1A0A00 0%, #2D1200 40%, #1A0A00 100%);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+  }
+  .hero-bg {
+    position:absolute; inset:0; z-index:0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(232,67,10,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(244,162,0,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(139,58,15,0.1) 0%, transparent 50%);
+  }
+  .hero-pattern {
+    position:absolute; inset:0; z-index:0; opacity:0.04;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F4A200' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content {
+    position:relative; z-index:2; padding: 80px 20px 60px;
+    max-width: 1200px; margin:0 auto; width:100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center;
+  }
+  .hero-text { animation: slideRight 0.9s ease both; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(232,67,10,0.15); border: 1px solid rgba(232,67,10,0.3);
+    border-radius: 50px; padding: 8px 18px; margin-bottom: 20px;
+    color: var(--gold); font-size: 0.85rem; font-weight: 700;
+  }
+  .hero-title {
+    font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900;
+    line-height: 1.1; margin-bottom: 20px; color: #fff;
+  }
+  .hero-title .brand { color: var(--gold); animation: textGlow 3s ease-in-out infinite; }
+  .hero-title .accent { color: var(--fire); }
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255,255,255,0.75); margin-bottom: 30px; line-height:1.7;
+  }
+  .hero-flags { display:flex; align-items:center; gap:8px; margin-bottom:30px; flex-wrap:wrap; }
+  .hero-flag {
+    display:inline-flex; align-items:center; gap:6px;
+    background: rgba(255,255,255,0.07); border-radius:50px;
+    padding: 6px 14px; color:rgba(255,255,255,0.85); font-size:0.85rem;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-visual { animation: slideLeft 0.9s ease both; display:flex; justify-content:center; align-items:center; }
+  .hero-card {
+    position:relative; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(244,162,0,0.2); border-radius: 28px;
+    padding: 30px; backdrop-filter: blur(20px);
+    width: 100%; max-width: 380px;
+    animation: float 5s ease-in-out infinite;
+  }
+  .hero-spice-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; }
+  .spice-emoji {
+    aspect-ratio:1; background: rgba(255,255,255,0.06);
+    border-radius:16px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:6px;
+    font-size: 2rem; cursor:default;
+    transition: var(--transition); border: 1px solid rgba(244,162,0,0.1);
+  }
+  .spice-emoji:hover { background: rgba(244,162,0,0.12); transform:scale(1.08); border-color:var(--gold); }
+  .spice-emoji span { font-size:0.65rem; color:rgba(255,255,255,0.7); text-align:center; font-weight:600; }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top: 16px;
+  }
+  .stat {
+    text-align:center; background: rgba(255,255,255,0.04);
+    border-radius:12px; padding:12px 8px;
+    border: 1px solid rgba(244,162,0,0.1);
+  }
+  .stat-num { font-size:1.3rem; font-weight:900; color:var(--gold); }
+  .stat-label { font-size:0.65rem; color:rgba(255,255,255,0.6); font-weight:600; margin-top:2px; }
+
+  /* ===== FIRE SPARKS ===== */
+  .fire-sparks { position:absolute; bottom:0; left:0; right:0; z-index:1; pointer-events:none; }
+  .spark {
+    position:absolute; bottom:0; width:4px; border-radius:50%;
+    background: var(--fire); animation: fireSpark 2s ease-out infinite;
+  }
+
+  /* ===== PROMO BAND ===== */
+  .promo-band {
+    background: linear-gradient(135deg, var(--fire) 0%, var(--gold) 50%, var(--fire) 100%);
+    background-size: 200% 200%; animation: gradientShift 4s ease infinite;
+    padding: 20px; text-align:center; position:relative; z-index:10;
+  }
+  .promo-band p { color:#fff; font-weight:800; font-size:clamp(0.9rem,2.5vw,1.1rem); }
+  .promo-band strong { font-size:1.3em; }
+
+  /* ===== CATEGORIES ===== */
+  #categories { padding: 80px 0; background: #0F0500; position:relative; z-index:2; }
+  .cat-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:16px; }
+  .cat-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(244,162,0,0.15); border-radius: 20px;
+    padding: 24px 16px; text-align:center; cursor:pointer;
+    transition: var(--transition); text-decoration:none;
+    display:block;
+  }
+  .cat-card:hover {
+    background: rgba(244,162,0,0.08); border-color: var(--gold);
+    transform: translateY(-6px); box-shadow: var(--shadow);
+  }
+  .cat-icon { font-size: 2.5rem; margin-bottom: 10px; display:block; }
+  .cat-name { color: rgba(255,255,255,0.9); font-weight: 700; font-size: 0.9rem; }
+  .cat-count { color: var(--gold); font-size: 0.75rem; margin-top:4px; }
+
+  /* ===== PRODUCTS ===== */
+  #produits { padding: 80px 0; background: linear-gradient(180deg, #0F0500, #1A0A00); position:relative; z-index:2; }
+  .products-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:24px; }
+  .product-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(244,162,0,0.15); border-radius: var(--radius);
+    overflow:hidden; transition: var(--transition);
+    position:relative; cursor:pointer;
+  }
+  .product-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: var(--gold);
+    box-shadow: 0 20px 50px rgba(232,67,10,0.25);
+  }
+  .product-img {
+    height: 200px; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+    background: linear-gradient(135deg, rgba(139,58,15,0.3), rgba(232,67,10,0.15));
+  }
+  .product-emoji { font-size: 5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); transition: var(--transition); }
+  .product-card:hover .product-emoji { transform: scale(1.15) rotate(5deg); }
+  .product-badge { position:absolute; top:12px; left:12px; }
+  .product-body { padding: 20px; }
+  .product-name { color:#fff; font-weight:800; font-size:1.05rem; margin-bottom:6px; }
+  .product-desc { color: rgba(255,255,255,0.6); font-size:0.83rem; margin-bottom:16px; line-height:1.5; }
+  .product-prices { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+  .price-row {
+    display:flex; align-items:center; justify-content:space-between;
+    background: rgba(255,255,255,0.04); border-radius:10px; padding:8px 12px;
+    border: 1px solid rgba(244,162,0,0.1);
+  }
+  .price-qty { color:rgba(255,255,255,0.75); font-size:0.82rem; }
+  .price-val { color: var(--gold); font-weight:800; font-size:1.05rem; }
+  .product-actions { display:flex; gap:10px; }
+  .btn-order {
+    flex:1; padding:11px; border-radius:12px; font-weight:700;
+    font-size:0.88rem; display:flex; align-items:center; justify-content:center; gap:6px;
+    cursor:pointer; border:none; transition: var(--transition);
+    background: linear-gradient(135deg, var(--fire), var(--gold)); color:#fff;
+  }
+  .btn-order:hover { transform:scale(1.03); box-shadow: 0 8px 20px rgba(232,67,10,0.35); }
+  .btn-wa-small {
+    width:40px; height:40px; border-radius:12px; background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    border:none; cursor:pointer; font-size:1.2rem; transition: var(--transition);
+  }
+  .btn-wa-small:hover { transform:scale(1.1); box-shadow: 0 6px 16px rgba(37,211,102,0.35); }
+  .product-ribbon {
+    position:absolute; top:16px; right:-30px;
+    background: var(--canada); color:#fff; font-size:0.65rem; font-weight:800;
+    padding: 5px 40px; transform: rotate(45deg); text-transform:uppercase;
+    letter-spacing:1px;
+  }
+
+  /* ===== SPECIAL OFFERS ===== */
+  #offres { padding: 80px 0; background: #0F0500; position:relative; z-index:2; }
+  .offers-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:24px; }
+  .offer-card {
+    border-radius: 24px; padding: 30px; position:relative; overflow:hidden;
+    transition: var(--transition);
+  }
+  .offer-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .offer-1 { background: linear-gradient(135deg, #8B1500, #E8430A); }
+  .offer-2 { background: linear-gradient(135deg, #1A4A00, #2D8A10); }
+  .offer-3 { background: linear-gradient(135deg, #1A1A6E, #3050C0); }
+  .offer-title { color:#fff; font-size:1.3rem; font-weight:900; margin-bottom:8px; }
+  .offer-desc { color:rgba(255,255,255,0.85); font-size:0.9rem; margin-bottom:20px; line-height:1.6; }
+  .offer-emoji { font-size:4rem; position:absolute; right:20px; top:20px; opacity:0.3; }
+
+  /* ===== ABOUT ===== */
+  #apropos { padding: 80px 0; background: linear-gradient(180deg, #1A0A00, #0F0500); position:relative; z-index:2; }
+  .about-grid { display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:center; }
+  .about-visual {
+    position:relative; display:flex; justify-content:center;
+  }
+  .about-img-wrap {
+    width: 100%; max-width:420px; aspect-ratio:1;
+    background: linear-gradient(135deg, rgba(232,67,10,0.15), rgba(244,162,0,0.1));
+    border-radius: 30px; display:flex; align-items:center; justify-content:center;
+    border: 1px solid rgba(244,162,0,0.2);
+    overflow:hidden; position:relative;
+    animation: float 6s ease-in-out infinite;
+  }
+  .about-emoji-grid {
+    display:grid; grid-template-columns: repeat(3,1fr); gap:16px; padding:24px;
+    width:100%;
+  }
+  .about-emoji-item {
+    aspect-ratio:1; background: rgba(255,255,255,0.06);
+    border-radius:16px; display:flex; align-items:center; justify-content:center;
+    font-size:2rem; transition: var(--transition);
+    border: 1px solid rgba(244,162,0,0.1);
+  }
+  .about-emoji-item:hover { transform:scale(1.12); background:rgba(244,162,0,0.12); }
+  .about-text {}
+  .about-subtitle { color: var(--gold); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+  .about-title { color:#fff; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:900; line-height:1.2; margin-bottom:20px; }
+  .about-desc { color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:20px; font-size:0.95rem; }
+  .about-features { display:flex; flex-direction:column; gap:12px; margin-bottom:28px; }
+  .feature-item {
+    display:flex; align-items:center; gap:12px;
+    background: rgba(255,255,255,0.03); border-radius:12px; padding:12px 16px;
+    border: 1px solid rgba(244,162,0,0.08);
+  }
+  .feature-icon { font-size:1.4rem; flex-shrink:0; }
+  .feature-text strong { display:block; color:#fff; font-size:0.9rem; font-weight:700; }
+  .feature-text span { color:rgba(255,255,255,0.6); font-size:0.8rem; }
+
+  /* ===== TESTIMONIALS ===== */
+  #temoignages { padding: 80px 0; background: #0A0300; position:relative; z-index:2; }
+  .reviews-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:20px; }
+  .review-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(244,162,0,0.12); border-radius:20px; padding:24px;
+    transition: var(--transition);
+  }
+  .review-card:hover { transform:translateY(-4px); border-color:var(--gold); }
+  .review-stars { color: var(--gold); font-size:1.1rem; margin-bottom:12px; }
+  .review-text { color:rgba(255,255,255,0.8); font-size:0.9rem; line-height:1.7; margin-bottom:16px; font-style:italic; }
+  .review-author { display:flex; align-items:center; gap:10px; }
+  .review-avatar {
+    width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem; background: linear-gradient(135deg, var(--fire), var(--gold));
+  }
+  .review-name { color:#fff; font-weight:700; font-size:0.88rem; }
+  .review-city { color:rgba(255,255,255,0.5); font-size:0.75rem; }
+
+  /* ===== LIVRAISON ===== */
+  #livraison { padding: 80px 0; background: linear-gradient(180deg, #0A0300, #1A0A00); position:relative; z-index:2; }
+  .delivery-hero {
+    background: linear-gradient(135deg, rgba(213,43,30,0.15), rgba(232,67,10,0.1));
+    border: 1px solid rgba(213,43,30,0.3); border-radius: 28px;
+    padding: 40px; text-align:center; margin-bottom:40px;
+  }
+  .delivery-flag { font-size:3rem; margin-bottom:16px; animation: waving 2s ease-in-out infinite; }
+  .delivery-title { color:#fff; font-size:clamp(1.4rem,3vw,2rem); font-weight:900; margin-bottom:10px; }
+  .delivery-desc { color:rgba(255,255,255,0.75); max-width:600px; margin:0 auto; line-height:1.7; }
+  .delivery-zones { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:16px; }
+  .zone-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(244,162,0,0.15); border-radius:16px; padding:20px;
+    text-align:center; transition: var(--transition);
+  }
+  .zone-card:hover { background:rgba(244,162,0,0.06); border-color:var(--gold); transform:translateY(-4px); }
+  .zone-emoji { font-size:2rem; margin-bottom:8px; }
+  .zone-name { color:#fff; font-weight:700; font-size:0.9rem; }
+  .zone-info { color:rgba(255,255,255,0.55); font-size:0.78rem; margin-top:4px; }
+
+  /* ===== CONTACT ===== */
+  #contact { padding: 80px 0; background: #0F0500; position:relative; z-index:2; }
+  .contact-wrap {
+    display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:start;
+  }
+  .contact-info {}
+  .contact-title { color:#fff; font-size:clamp(1.4rem,3vw,2rem); font-weight:900; margin-bottom:20px; }
+  .contact-items { display:flex; flex-direction:column; gap:14px; }
+  .contact-item {
+    display:flex; align-items:center; gap:14px;
+    background: rgba(255,255,255,0.03); border-radius:14px; padding:16px;
+    border: 1px solid rgba(244,162,0,0.1); transition: var(--transition);
+  }
+  .contact-item:hover { border-color:var(--gold); background:rgba(244,162,0,0.06); }
+  .contact-icon { font-size:1.6rem; flex-shrink:0; }
+  .contact-detail strong { display:block; color:#fff; font-weight:700; font-size:0.9rem; }
+  .contact-detail span { color:rgba(255,255,255,0.6); font-size:0.82rem; }
+  .contact-detail a { color:var(--gold); text-decoration:none; font-weight:700; }
+  .contact-form-wrap {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(244,162,0,0.15);
+    border-radius:24px; padding:30px;
+  }
+  .form-title { color:#fff; font-weight:800; font-size:1.1rem; margin-bottom:20px; }
+  .form-group { margin-bottom:16px; }
+  .form-group label { display:block; color:rgba(255,255,255,0.75); font-size:0.82rem; font-weight:600; margin-bottom:6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width:100%; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(244,162,0,0.15); border-radius:12px;
+    padding:12px 14px; color:#fff; font-size:0.9rem;
+    transition: var(--transition); outline:none; font-family:inherit;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--gold); background:rgba(244,162,0,0.05);
+    box-shadow: 0 0 0 3px rgba(244,162,0,0.1);
+  }
+  .form-group textarea { resize:vertical; min-height:100px; }
+  .form-group select option { background: var(--dark); color:#fff; }
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float {
+    position:fixed; bottom:24px; right:24px; z-index:9999;
+    display:flex; flex-direction:column; align-items:flex-end; gap:10px;
+  }
+  .wa-btn {
+    width:60px; height:60px; background:#25D366; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.8rem; cursor:pointer; border:none; text-decoration:none;
+    animation: pulse 2.5s ease infinite;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+    transition: var(--transition);
+  }
+  .wa-btn:hover { transform:scale(1.1); }
+  .wa-tooltip {
+    background: rgba(26,10,0,0.95); color:var(--gold); padding:8px 14px;
+    border-radius:10px; font-size:0.8rem; font-weight:700;
+    border: 1px solid rgba(244,162,0,0.2); white-space:nowrap;
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* ===== SCROLL TO TOP ===== */
+  .scroll-top {
+    position:fixed; bottom:96px; right:24px; z-index:999;
+    width:46px; height:46px; background: rgba(232,67,10,0.8);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; border:none; font-size:1.1rem; color:#fff;
+    opacity:0; transform:translateY(10px);
+    transition: var(--transition);
+    backdrop-filter:blur(10px);
+  }
+  .scroll-top.visible { opacity:1; transform:translateY(0); }
+  .scroll-top:hover { background:var(--fire); transform:translateY(-3px) scale(1.05); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #080200; border-top: 1px solid rgba(244,162,0,0.1);
+    padding: 60px 0 20px; position:relative; z-index:2;
+  }
+  .footer-grid { display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px; }
+  .footer-brand p { color:rgba(255,255,255,0.55); font-size:0.85rem; line-height:1.7; margin:12px 0 20px; }
+  .footer-socials { display:flex; gap:10px; }
+  .social-btn {
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; text-decoration:none; transition: var(--transition);
+    border: 1px solid rgba(244,162,0,0.15); color:rgba(255,255,255,0.7);
+    background:rgba(255,255,255,0.03);
+  }
+  .social-btn:hover { background:var(--fire); border-color:var(--fire); color:#fff; transform:translateY(-2px); }
+  .footer-col h4 { color:var(--gold); font-weight:800; margin-bottom:16px; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .footer-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.85rem; transition: var(--transition); display:flex; align-items:center; gap:6px; }
+  .footer-links a:hover { color:var(--gold); padding-left:4px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06); padding-top:20px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  .footer-bottom p { color:rgba(255,255,255,0.4); font-size:0.78rem; }
+  .footer-flag { font-size:1.2rem; }
+
+  /* ===== SECTION DIVIDER ===== */
+  .divider { height:2px; background:linear-gradient(90deg, transparent, var(--fire), var(--gold), var(--fire), transparent); margin: 0; }
+
+  /* ===== LOADER ===== */
+  #loader {
+    position:fixed; inset:0; z-index:99999;
+    background: var(--dark); display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:20px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  #loader.hide { opacity:0; visibility:hidden; }
+  .loader-logo { font-size:3rem; animation: bounce 1s ease infinite; }
+  .loader-bar { width:200px; height:4px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden; }
+  .loader-fill { height:100%; background:linear-gradient(90deg, var(--fire), var(--gold)); border-radius:4px; animation: loadBar 1.5s ease forwards; }
+  @keyframes loadBar { from{width:0%} to{width:100%} }
+  .loader-text { color:rgba(255,255,255,0.7); font-size:0.9rem; }
+
+  /* ===== COUNTER ===== */
+  .counter { font-variant-numeric: tabular-nums; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { gap:40px; }
+  }
+  @media (max-width:768px) {
+    .nav-menu, .nav-cta { display:none; }
+    .hamburger { display:flex; }
+    .mobile-drawer { display:flex; }
+    .hero-content { grid-template-columns:1fr; gap:40px; padding-top:60px; }
+    .hero-visual { order:-1; }
+    .hero-card { max-width:100%; }
+    .about-grid { grid-template-columns:1fr; }
+    .about-visual { order:-1; }
+    .contact-wrap { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr; gap:30px; }
+    .footer-bottom { flex-direction:column; text-align:center; }
+    .products-grid { grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); }
+  }
+  @media (max-width:480px) {
+    .hero-btns { flex-direction:column; }
+    .hero-btns .btn { width:100%; justify-content:center; }
+    .cat-grid { grid-template-columns: repeat(3,1fr); }
+    .cat-card { padding:16px 8px; }
+    .cat-icon { font-size:2rem; }
+    .products-grid { grid-template-columns:1fr; }
+    .delivery-zones { grid-template-columns: 1fr 1fr; }
+    .offers-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">🌶️</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+  <p class="loader-text">Chargement des saveurs d'Afrique…</p>
+</div>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-text">
+      <span>🌶️ Épices 100% authentiques d'Afrique</span>
+      <span>📦 Livraison rapide à Ottawa & partout au Canada 🇨🇦</span>
+      <span>📞 Commandez via WhatsApp : +1 (613) 410-5735</span>
+      <span>🔥 Leticubes • Écrevisses • Cubes Maggi • Bouga</span>
+      <span>✨ Goûtez l'Afrique dans votre assiette !</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">🌿</div>
+      <div class="nav-logo-text">
+        <strong>NYANGA</strong>
+        <span>Saveurs d'Afrique</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#categories">Catégories</a></li>
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#offres">Offres</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#temoignages">Avis</a></li>
+      <li><a href="#livraison">Livraison</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://wa.me/16134105735" class="btn btn-wa" target="_blank" rel="noopener">
+        💬 Commander
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">🌿</div>
+      <div class="nav-logo-text">
+        <strong>NYANGA</strong>
+        <span>Saveurs d'Afrique</span>
+      </div>
+    </div>
+    <button class="drawer-close" id="drawerClose">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#hero" class="drawer-link"><span class="icon">🏠</span> Accueil</a>
+    <a href="#categories" class="drawer-link"><span class="icon">📂</span> Catégories</a>
+    <a href="#produits" class="drawer-link"><span class="icon">🛒</span> Nos Produits</a>
+    <a href="#offres" class="drawer-link"><span class="icon">🎁</span> Offres Spéciales</a>
+    <a href="#apropos" class="drawer-link"><span class="icon">🌍</span> À Propos</a>
+    <a href="#temoignages" class="drawer-link"><span class="icon">⭐</span> Avis Clients</a>
+    <a href="#livraison" class="drawer-link"><span class="icon">🚚</span> Livraison</a>
+    <a href="#contact" class="drawer-link"><span class="icon">📞</span> Contact</a>
+  </nav>
+  <div class="drawer-cta">
+    <a href="https://wa.me/16134105735" class="btn btn-wa" target="_blank" rel="noopener" style="justify-content:center;">
+      💬 Commander sur WhatsApp
+    </a>
+    <a href="tel:+16134105735" class="btn btn-outline" style="justify-content:center;">
+      📞 Appeler maintenant
+    </a>
+  </div>
+  <div style="padding:0 20px; margin-top:auto;">
+    <div style="background:rgba(244,162,0,0.06);border:1px solid rgba(244,162,0,0.15);border-radius:14px;padding:16px;text-align:center;">
+      <div style="color:var(--gold);font-weight:800;font-size:0.9rem;margin-bottom:4px;">📦 Livraison Ottawa</div>
+      <div style="color:rgba(255,255,255,0.6);font-size:0.78rem;">Rapide & fiable partout au Canada</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="fire-sparks" id="fireSparks"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span>🇨🇦</span> Ottawa, Canada · Livraison rapide
+      </div>
+      <h1 class="hero-title">
+        <span class="brand">NYANGA</span><br>
+        <span class="accent">Saveurs</span><br>
+        d'Afrique 🌶️
+      </h1>
+      <p class="hero-subtitle">
+        Découvrez nos épices <strong style="color:var(--gold)">100% authentiques</strong> pour relever vos plats comme au pays ! Des arômes envoûtants, des saveurs inoubliables.
+      </p>
+      <div class="hero-flags">
+        <div class="hero-flag">🌍 Importé d'Afrique</div>
+        <div class="hero-flag">🇨🇦 Livré au Canada</div>
+        <div class="hero-flag">✅ 100% Authentique</div>
+      </div>
+      <div class="hero-btns">
+        <a href="#produits" class="btn btn-fire">
+          🛒 Voir les produits
+        </a>
+        <a href="https://wa.me/16134105735" class="btn btn-wa" target="_blank" rel="noopener">
+          💬 Commander via WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-spice-grid">
+          <div class="spice-emoji">🌶️<span>Bouga</span></div>
+          <div class="spice-emoji">🦐<span>Écrevisses</span></div>
+          <div class="spice-emoji">🟧<span>Léticubes</span></div>
+          <div class="spice-emoji">🫙<span>Maggi</span></div>
+          <div class="spice-emoji">🟦<span>Crevettes</span></div>
+          <div class="spice-emoji">✨<span>Top Goût</span></div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num counter" data-target="100">0</div>
+            <div class="stat-label">% Authentique</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num counter" data-target="6">0</div>
+            <div class="stat-label">Produits</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">🇨🇦</div>
+            <div class="stat-label">Livraison CA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BAND -->
+<div class="promo-band">
+  <p>📦 <strong>Livraison disponible</strong> à Ottawa & partout au Canada 🇨🇦 &nbsp;|&nbsp; 📞 WhatsApp : <strong>+1 (613) 410-5735</strong></p>
+</div>
+<div class="divider"></div>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="container">
+    <h2 class="section-title hidden">🗂️ Nos Catégories</h2>
+    <div class="cat-grid">
+      <a href="#produits" class="cat-card hidden">
+        <span class="cat-icon">🔸</span>
+        <div class="cat-name">Arômes & Assaisonnements</div>
+        <div class="cat-count">Léticubes, Bouga…</div>
+      </a>
+      <a href="#produits" class="cat-card hidden">
+        <span class="cat-icon">🦐</span>
+        <div class="cat-name">Fruits de Mer Séchés</div>
+        <div class="cat-count">Écrevisses séchées</div>
+      </a>
+      <a href="#produits" class="cat-card hidden">
+        <span class="cat-icon">🟧</span>
+        <div class="cat-name">Cubes Maggi</div>
+        <div class="cat-count">100 cubes / paquet</div>
+      </a>
+      <a href="#produits" class="cat-card hidden">
+        <span class="cat-icon">🟦</span>
+        <div class="cat-name">Cubes Crevettes</div>
+        <div class="cat-count">50 cubes / paquet</div>
+      </a>
+      <a href="#produits" class="cat-card hidden">
+        <span class="cat-icon">🟩</span>
+        <div class="cat-name">Top Goût</div>
+        <div class="cat-count">Assaisonnement premium</div>
+      </a>
+      <a href="#livraison" class="cat-card hidden">
+        <span class="cat-icon">🚚</span>
+        <div class="cat-name">Livraison</div>
+        <div class="cat-count">Ottawa & Canada</div>
+      </a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section id="produits">
+  <div class="container">
+    <h2 class="section-title hidden">🛒 Nos Produits Disponibles</h2>
+    <p style="text-align:center;color:rgba(255,255,255,0.6);margin-top:-30px;margin-bottom:40px;font-size:0.9rem;">Arômes &amp; Assaisonnements 100% africains — livraison rapide 🇨🇦</p>
+
+    <div class="products-grid">
+
+      <!-- Léticubes -->
+      <div class="product-card hidden">
+        <div class="product-img">
+          <div class="product-emoji">🔸</div>
+          <div class="product-badge"><span class="badge badge-hot">🔥 Populaire</span></div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Léticubes 125g</div>
+          <div class="product-desc">Assaisonnement africain authentique, idéal pour relever tous vos plats. Saveur intense et naturelle.</div>
+          <div class="product-prices">
+            <div class="price-row">
+              <span class="price-qty">📦 1 paquet</span>
+              <span class="price-val">$13.00</span>
+            </div>
+            <div class="price-row" style="background:rgba(244,162,0,0.08);border-color:rgba(244,162,0,0.25);">
+              <span class="price-qty">📦📦 2 paquets</span>
+              <span class="price-val" style="color:#4CAF50;">$25.00 🎉</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-order" onclick="orderProduct('Léticubes')">🛒 Commander</button>
+            <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20des%20Léticubes" class="btn-wa-small" target="_blank" rel="noopener">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Écrevisses -->
+      <div class="product-card hidden">
+        <div class="product-img">
+          <div class="product-emoji">🦐</div>
+          <div class="product-badge"><span class="badge badge-new">✨ Authentique</span></div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Écrevisses Séchées</div>
+          <div class="product-desc">Écrevisses séchées naturelles. Un arôme puissant et authentique, pour jusqu'à 10 personnes.</div>
+          <div class="product-prices">
+            <div class="price-row">
+              <span class="price-qty">👥 Jusqu'à 10 pers.</span>
+              <span class="price-val">$15.00</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-order" onclick="orderProduct('Écrevisses séchées')">🛒 Commander</button>
+            <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20des%20Écrevisses%20séchées" class="btn-wa-small" target="_blank" rel="noopener">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cubes Maggi -->
+      <div class="product-card hidden">
+        <div class="product-img" style="background:linear-gradient(135deg,rgba(255,120,0,0.2),rgba(200,80,0,0.1));">
+          <div class="product-emoji">🟧</div>
+          <div class="product-ribbon">Paquet</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Cubes Maggi</div>
+          <div class="product-desc">Le cube bouillon incontournable de la cuisine africaine. 100 cubes pour un maximum de saveur.</div>
+          <div class="product-prices">
+            <div class="price-row">
+              <span class="price-qty">📦 100 cubes</span>
+              <span class="price-val">$9.00</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-order" onclick="orderProduct('Cubes Maggi')">🛒 Commander</button>
+            <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20des%20Cubes%20Maggi" class="btn-wa-small" target="_blank" rel="noopener">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cubes Crevettes -->
+      <div class="product-card hidden">
+        <div class="product-img" style="background:linear-gradient(135deg,rgba(0,80,200,0.2),rgba(0,40,120,0.1));">
+          <div class="product-emoji">🟦</div>
+          <div class="product-badge"><span class="badge badge-promo">🇨🇦 Canada</span></div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Cubes Crevettes</div>
+          <div class="product-desc">Arôme crevettes intense pour enrichir vos soupes, sauces et ragoûts africains.</div>
+          <div class="product-prices">
+            <div class="price-row">
+              <span class="price-qty">📦 50 cubes</span>
+              <span class="price-val">$14.00</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-order" onclick="orderProduct('Cubes Crevettes')">🛒 Commander</button>
+            <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20des%20Cubes%20Crevettes" class="btn-wa-small" target="_blank" rel="noopener">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Goût -->
+      <div class="product-card hidden">
+        <div class="product-img" style="background:linear-gradient(135deg,rgba(0,160,30,0.2),rgba(0,100,10,0.1));">
+          <div class="product-emoji">🟩</div>
+          <div class="product-badge"><span class="badge badge-new">🌿 Premium</span></div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Top Goût Cubes</div>
+          <div class="product-desc">Assaisonnement haut de gamme, parfait pour sublimer viandes, poissons et légumes.</div>
+          <div class="product-prices">
+            <div class="price-row">
+              <span class="price-qty">📦 1 paquet</span>
+              <span class="price-val">$7.99</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-order" onclick="orderProduct('Top Goût Cubes')">🛒 Commander</button>
+            <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20du%20Top%20Goût" class="btn-wa-small" target="_blank" rel="noopener">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouga -->
+      <div class="product-card hidden">
+        <div class="product-img" style="background:linear-gradient(135deg,rgba(200,0,0,0.2),rgba(100,0,0,0.1));">
+          <div class="product-emoji">🔥</div>
+          <div class="product-badge"><span class="badge badge-hot">🌶️ Piment Fort</span></div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Bouga (Moyen)</div>
+          <div class="product-desc">Le piment africain par excellence. Pour les amateurs de saveurs puissantes et authentiques.</div>
+          <div class="product-prices">
+            <div class="price-row">
+              <span class="price-qty">🔥 3 pièces</span>
+              <span class="price-val">$10.00</span>
+            </div>
+          </div>
+          <div class="product-actions">
+            <button class="btn-order" onclick="orderProduct('Bouga')">🛒 Commander</button>
+            <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20du%20Bouga" class="btn-wa-small" target="_blank" rel="noopener">💬</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:16px;">Plus d'arômes disponibles — contactez-nous !</p>
+      <a href="https://wa.me/16134105735?text=Bonjour%20je%20voudrais%20voir%20tous%20vos%20produits" class="btn btn-wa" target="_blank" rel="noopener">💬 Voir tous les produits</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- OFFERS -->
+<section id="offres">
+  <div class="container">
+    <h2 class="section-title hidden">🎁 Offres Spéciales</h2>
+    <div class="offers-grid">
+      <div class="offer-card offer-1 hidden">
+        <div class="offer-emoji">🌶️</div>
+        <span class="badge badge-hot" style="margin-bottom:12px;display:inline-block;">Meilleur Vendeur</span>
+        <div class="offer-title">Pack Duo Léticubes</div>
+        <div class="offer-desc">Achetez 2 paquets de Léticubes 125g et profitez d'une économie immédiate. 2 paquets pour seulement <strong>$25</strong> au lieu de $26 !</div>
+        <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20le%20Pack%20Duo%20Léticubes" class="btn btn-wa" target="_blank" rel="noopener">💬 Commander ce pack</a>
+      </div>
+      <div class="offer-card offer-2 hidden">
+        <div class="offer-emoji">🦐</div>
+        <span class="badge badge-new" style="margin-bottom:12px;display:inline-block;">Fraîcheur Garantie</span>
+        <div class="offer-title">Écrevisses Familiales</div>
+        <div class="offer-desc">Un paquet d'Écrevisses séchées authentiques à seulement <strong>$15</strong>, suffit pour nourrir jusqu'à <strong>10 personnes</strong> avec des saveurs inoubliables.</div>
+        <a href="https://wa.me/16134105735?text=Bonjour%20je%20veux%20commander%20les%20Écrevisses%20familiales" class="btn btn-wa" target="_blank" rel="noopener">💬 Commander maintenant</a>
+      </div>
+      <div class="offer-card offer-3 hidden">
+        <div class="offer-emoji">🚚</div>
+        <span class="badge badge-promo" style="margin-bottom:12px;display:inline-block;">🇨🇦 Ottawa</span>
+        <div class="offer-title">Livraison Rapide Ottawa</div>
+        <div class="offer-desc">Vivez à Ottawa ? Profitez d'une livraison rapide et fiable directement chez vous. Commandez via WhatsApp, recevez vite !</div>
+        <a href="https://wa.me/16134105735?text=Bonjour%20je%20voudrais%20commander%20avec%20livraison%20Ottawa" class="btn btn-wa" target="_blank" rel="noopener">💬 Commander à Ottawa</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="apropos">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual hidden">
+        <div class="about-img-wrap">
+          <div class="about-emoji-grid">
+            <div class="about-emoji-item">🌍</div>
+            <div class="about-emoji-item">🌶️</div>
+            <div class="about-emoji-item">🔥</div>
+            <div class="about-emoji-item">🦐</div>
+            <div class="about-emoji-item">✨</div>
+            <div class="about-emoji-item">🍲</div>
+            <div class="about-emoji-item">🇨🇦</div>
+            <div class="about-emoji-item">💫</div>
+            <div class="about-emoji-item">🌿</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text hidden">
+        <div class="about-subtitle">Notre Histoire</div>
+        <h2 class="about-title">L'Afrique dans votre assiette, au cœur d'Ottawa</h2>
+        <p class="about-desc">NYANGA – Saveurs d'Afrique est née d'une passion : apporter les arômes authentiques d'Afrique aux familles africaines et à tous les amoureux de la gastronomie africaine vivant au Canada.</p>
+        <p class="about-desc">Chaque produit est soigneusement sélectionné pour vous garantir une expérience gustative 100% authentique, comme au pays.</p>
+        <div class="about-features">
+          <div class="feature-item">
+            <span class="feature-icon">✅</span>
+            <div class="feature-text">
+              <strong>100% Authentique</strong>
+              <span>Épices et arômes directement importés d'Afrique</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🚚</span>
+            <div class="feature-text">
+              <strong>Livraison Rapide</strong>
+              <span>Ottawa et partout au Canada 🇨🇦</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">💬</span>
+            <div class="feature-text">
+              <strong>Service Personnalisé</strong>
+              <span>Commandez facilement via WhatsApp</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">💰</span>
+            <div class="feature-text">
+              <strong>Prix Accessibles</strong>
+              <span>Le goût de l'Afrique à petits prix</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/16134105735" class="btn btn-fire" target="_blank" rel="noopener">
+          🌿 Nous contacter
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="temoignages">
+  <div class="container">
+    <h2 class="section-title hidden">⭐ Avis de Nos Clients</h2>
+    <div class="reviews-grid">
+      <div class="review-card hidden">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">« Les Léticubes sont exactement comme ceux de chez nous ! Livraison rapide à Ottawa. Je recommande vraiment NYANGA ! »</p>
+        <div class="review-author">
+          <div class="review-avatar">👩</div>
+          <div>
+            <div class="review-name">Marie K.</div>
+            <div class="review-city">Ottawa, Ontario 🇨🇦</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card hidden">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">« Les écrevisses séchées sont incroyables ! Ça change complètement le goût de mes plats. Merci NYANGA pour ce service extraordinaire ! »</p>
+        <div class="review-author">
+          <div class="review-avatar">👨</div>
+          <div>
+            <div class="review-name">Patrick M.</div>
+            <div class="review-city">Gatineau, QC 🇨🇦</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card hidden">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">« Enfin un endroit où trouver de vrais cubes Maggi africains à Ottawa ! Le Bouga est également très bon. Livraison en 24h, parfait ! »</p>
+        <div class="review-author">
+          <div class="review-avatar">👩</div>
+          <div>
+            <div class="review-name">Aisha T.</div>
+            <div class="review-city">Ottawa, Ontario 🇨🇦</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card hidden">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">« Je commande régulièrement. Le service est excellent, les produits de qualité. NYANGA c'est vraiment le goût de chez nous ! »</p>
+        <div class="review-author">
+          <div class="review-avatar">👨</div>
+          <div>
+            <div class="review-name">Jean-Paul B.</div>
+            <div class="review-city">Toronto, ON 🇨🇦</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- LIVRAISON -->
+<section id="livraison">
+  <div class="container">
+    <h2 class="section-title hidden">🚚 Livraison</h2>
+    <div class="delivery-hero hidden">
+      <div class="delivery-flag">🇨🇦</div>
+      <div class="delivery-title">Livraison partout au Canada</div>
+      <p class="delivery-desc">Commandez via WhatsApp et recevez vos épices africaines authentiques directement chez vous. Livraison prioritaire disponible à Ottawa.</p>
+    </div>
+    <div class="delivery-zones">
+      <div class="zone-card hidden">
+        <div class="zone-emoji">🏙️</div>
+        <div class="zone-name">Ottawa</div>
+        <div class="zone-info">Livraison prioritaire</div>
+      </div>
+      <div class="zone-card hidden">
+        <div class="zone-emoji">🌆</div>
+        <div class="zone-name">Gatineau</div>
+        <div class="zone-info">Livraison disponible</div>
+      </div>
+      <div class="zone-card hidden">
+        <div class="zone-emoji">🏢</div>
+        <div class="zone-name">Toronto</div>
+        <div class="zone-info">Livraison Canada Post</div>
+      </div>
+      <div class="zone-card hidden">
+        <div class="zone-emoji">🌇</div>
+        <div class="zone-name">Montréal</div>
+        <div class="zone-info">Livraison disponible</div>
+      </div>
+      <div class="zone-card hidden">
+        <div class="zone-emoji">🌃</div>
+        <div class="zone-name">Vancouver</div>
+        <div class="zone-info">Partout au Canada</div>
+      </div>
+      <div class="zone-card hidden">
+        <div class="zone-emoji">🍁</div>
+        <div class="zone-name">Tout le Canada</div>
+        <div class="zone-info">Livraison nationale</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;padding:30px;background:rgba(232,67,10,0.06);border-radius:20px;border:1px solid rgba(232,67,10,0.15);">
+      <p style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:8px;">📦 Comment commander ?</p>
+      <p style="color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.7;max-width:500px;margin-left:auto;margin-right:auto;">C'est simple ! Envoyez-nous un message WhatsApp avec les produits et la quantité souhaitée. Nous confirmons votre commande et organisons la livraison.</p>
+      <a href="https://wa.me/16134105735?text=Bonjour%20NYANGA%2C%20je%20voudrais%20passer%20une%20commande" class="btn btn-wa" target="_blank" rel="noopener">
+        💬 Passer ma commande maintenant
+      </a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title hidden">📞 Contactez-Nous</h2>
+    <div class="contact-wrap">
+      <div class="contact-info hidden">
+        <h3 class="contact-title">Nous sommes là pour vous !</h3>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div class="contact-detail">
+              <strong>Téléphone / WhatsApp</strong>
+              <span><a href="tel:+16134105735">+1 (613) 410-5735</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💬</span>
+            <div class="contact-detail">
+              <strong>WhatsApp Direct</strong>
+              <span><a href="https://wa.me/16134105735" target="_blank" rel="noopener">Cliquez pour écrire</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div class="contact-detail">
+              <strong>Zone de livraison</strong>
+              <span>Ottawa & partout au Canada 🇨🇦</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕒</span>
+            <div class="contact-detail">
+              <strong>Disponibilité</strong>
+              <span>7j/7 – Réponse rapide garantie</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:24px;">
+          <a href="https://wa.me/16134105735" class="btn btn-wa" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+            💬 Écrire sur WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrap hidden">
+        <div class="form-title">✉️ Envoyer un message</div>
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label>Votre prénom *</label>
+            <input type="text" placeholder="Ex: Marie" required>
+          </div>
+          <div class="form-group">
+            <label>Votre téléphone / WhatsApp *</label>
+            <input type="tel" placeholder="Ex: +1 (613) 000-0000" required>
+          </div>
+          <div class="form-group">
+            <label>Ville *</label>
+            <input type="text" placeholder="Ex: Ottawa" required>
+          </div>
+          <div class="form-group">
+            <label>Produit(s) souhaité(s)</label>
+            <select>
+              <option value="">-- Choisir un produit --</option>
+              <option>Léticubes 125g – $13 / 2 pour $25</option>
+              <option>Écrevisses séchées – $15</option>
+              <option>Cubes Maggi – $9 (100 cubes)</option>
+              <option>Cubes Crevettes – $14 (50 cubes)</option>
+              <option>Top Goût Cubes – $7.99</option>
+              <option>Bouga – $10 (3 pièces)</option>
+              <option>Plusieurs produits</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message / Détails de commande</label>
+            <textarea placeholder="Ex: Je veux 2 paquets de Léticubes et 1 Bouga, livraison Ottawa…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-fire" style="width:100%;justify-content:center;">
+            📤 Envoyer ma commande
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:12px;">
+          <div class="nav-logo-icon">🌿</div>
+          <div class="nav-logo-text">
+            <strong>NYANGA</strong>
+            <span>Saveurs d'Afrique</span>
+          </div>
+        </div>
+        <p>Épices africaines 100% authentiques livrées à Ottawa et partout au Canada. Goûtez l'Afrique dans votre assiette !</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/16134105735" class="social-btn" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+          <a href="tel:+16134105735" class="social-btn" title="Appeler">📞</a>
+          <a href="#" class="social-btn" title="Facebook">📘</a>
+          <a href="#" class="social-btn" title="Instagram">📷</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">→ Accueil</a></li>
+          <li><a href="#categories">→ Catégories</a></li>
+          <li><a href="#produits">→ Produits</a></li>
+          <li><a href="#offres">→ Offres</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <ul class="footer-links">
+          <li><a href="#apropos">→ À Propos</a></li>
+          <li><a href="#temoignages">→ Avis Clients</a></li>
+          <li><a href="#livraison">→ Livraison</a></li>
+          <li><a href="#contact">→ Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+16134105735">📞 +1 (613) 410-5735</a></li>
+          <li><a href="https://wa.me/16134105735" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+          <li><a href="#livraison">🚚 Ottawa & Canada</a></li>
+          <li><a href="#produits">🛒 Commander</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 NYANGA – Saveurs d'Afrique. Tous droits réservés. Ottawa, Canada.</p>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="footer-flag">🇨🇦</span>
+        <span class="footer-flag">🌍</span>
+        <span style="color:rgba(255,255,255,0.4);font-size:0.78rem;">Fait avec ❤️ pour la diaspora africaine</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <div class="wa-tooltip" id="waTooltip">Commander sur WhatsApp 💬</div>
+  <a href="https://wa.me/16134105735?text=Bonjour%20NYANGA%2C%20je%20veux%20commander%20vos%20épices%20!" class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+<!-- ORDER MODAL -->
+<div id="orderModal" style="display:none;position:fixed;inset:0;z-index:99998;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
+  <div style="background:var(--dark);border:1px solid rgba(244,162,0,0.25);border-radius:24px;padding:32px;max-width:440px;width:100%;animation:zoomIn 0.3s ease both;">
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:3rem;margin-bottom:8px;">🛒</div>
+      <h3 style="color:#fff;font-size:1.2rem;font-weight:800;" id="modalTitle">Commander</h3>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin-top:6px;">Choisissez votre méthode de commande</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <a id="modalWa" href="#" class="btn btn-wa" style="justify-content:center;" target="_blank" rel="noopener">
+        💬 Commander via WhatsApp
+      </a>
+      <a id="modalCall" href="tel:+16134105735" class="btn btn-outline" style="justify-content:center;">
+        📞 Appeler le +1 (613) 410-5735
+      </a>
+    </div>
+    <button onclick="closeModal()" style="width:100%;margin-top:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px;color:rgba(255,255,255,0.5);cursor:pointer;font-size:0.85rem;transition:var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+      Fermer
+    </button>
+  </div>
+</div>
+
+<script>
+// ===== LOADER =====
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+  }, 1800);
+});
+
+// ===== PARTICLES =====
+(function createParticles() {
+  const container = document.getElementById('particles');
+  const colors = ['#E8430A','#F4A200','#8B3A0F','#FF6B35'];
+  const sizes = [4,6,8,10,12];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = sizes[Math.floor(Math.random()*sizes.length)];
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${8+Math.random()*12}s;
+      animation-delay:${Math.random()*10}s;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// ===== FIRE SPARKS =====
+(function createSparks() {
+  const container = document.getElementById('fireSparks');
+  if (!container) return;
+  for (let i = 0; i < 12; i++) {
+    const s = document.createElement('div');
+    s.className = 'spark';
+    const size = 2 + Math.random()*4;
+    const colors = ['#E8430A','#F4A200','#FF6B35','#FFD700'];
+    s.style.cssText = `
+      left:${5+Math.random()*90}%;
+      width:${size}px;height:${size*2}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${1.5+Math.random()*2}s;
+      animation-delay:${Math.random()*3}s;
+    `;
+    container.appendChild(s);
+  }
+})();
+
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+const scrollTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+    scrollTop.classList.add('visible');
+  } else {
+    navbar.classList.remove('scrolled');
+    scrollTop.classList.remove('visible');
+  }
+});
+
+// ===== MOBILE DRAWER =====
+const hamburger = document.getElementById('hamburger');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+const drawerClose = document.getElementById('drawerClose');
+
+function openDrawer() {
+  mobileDrawer.classList.add('open');
+  drawerOverlay.classList.add('open');
+  hamburger.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  mobileDrawer.classList.remove('open');
+  drawerOverlay.classList.remove('open');
+  hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hamburger.addEventListener('click', openDrawer);
+drawerClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+document.querySelectorAll('.drawer-link').forEach(link => {
+  link.addEventListener('click', closeDrawer);
+});
+
+// ===== INTERSECTION OBSERVER =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, idx) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, idx * 80);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el, target, duration = 1500) {
+  let start = 0;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    el.textContent = Math.floor(progress * target);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(step);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = parseInt(entry.target.dataset.target);
+      animateCounter(entry.target, target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// ===== ORDER MODAL =====
+function orderProduct(name) {
+  const modal = document.getElementById('orderModal');
+  document.getElementById('modalTitle').textContent = 'Commander : ' + name;
+  document.getElementById('modalWa').href =
+    `https://wa.me/16134105735?text=Bonjour%20NYANGA%2C%20je%20veux%20commander%20:%20${encodeURIComponent(name)}`;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('orderModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('orderModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ===== FORM SUBMIT =====
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('input[type="text"]').value;
+  const phone = form.querySelector('input[type="tel"]').value;
+  const city = form.querySelectorAll('input[type="text"]')[1]?.value || '';
+  const product = form.querySelector('select').value;
+  const message = form.querySelector('textarea').value;
+  const waMsg = `Bonjour NYANGA ! Je m'appelle ${name}. Ville: ${city}. Je veux commander: ${product || 'voir les produits'}. ${message}. Mon contact: ${phone}`;
+  window.open(`https://wa.me/16134105735?text=${encodeURIComponent(waMsg)}`, '_blank');
+}
+
+// ===== WA TOOLTIP HIDE =====
+setTimeout(() => {
+  const tooltip = document.getElementById('waTooltip');
+  if (tooltip) { tooltip.style.opacity='0'; tooltip.style.transition='opacity 0.5s'; }
+}, 4000);
+
+// ===== ACTIVE NAV =====
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-menu a').forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 70;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
